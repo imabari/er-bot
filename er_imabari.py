@@ -23,15 +23,15 @@ def scraping(html):
         "table", class_="comTblGyoumuCommon", summary="検索結果一覧を表示しています。"
     )
 
-    today = datetime.date.today()
-    # today = datetime.date(2019, 10, 24)
+    JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
+    dt_now = datetime.datetime.now(JST)
 
     for table in tables:
 
         date, week = table.td.get_text(strip=True).split()
         day = datetime.datetime.strptime(date, "%Y年%m月%d日")
 
-        if day.date() == today:
+        if day.date() == dt_now.date():
 
             result = []
 
