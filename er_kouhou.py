@@ -24,10 +24,10 @@ if __name__ == "__main__":
     JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
 
     # 今月
-    # dt_now = datetime.datetime.now(JST)
+    dt_now = datetime.datetime.now(JST)
 
     # 来月
-    dt_now = datetime.datetime.now(JST) + datetime.timedelta(days=28)
+    # dt_now = datetime.datetime.now(JST) + datetime.timedelta(days=28)
 
     # URL作成
     url = f"http://www.city.imabari.ehime.jp/kouhou/koho/{dt_now.year}{dt_now.month:02}/kyukyu.pdf"
