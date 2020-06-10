@@ -7,7 +7,7 @@ import requests
 import tweepy
 
 
-def get_file(url, dir="."):
+def get_file(url):
 
     r = requests.get(url)
 
