@@ -5,7 +5,7 @@ name: Kouhou
 
 on:
   schedule:
-    - cron:  '0 2 28 * *'
+    - cron:  '0 3 28 * *'
 jobs:
   build:
 
