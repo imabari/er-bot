@@ -5,7 +5,7 @@ name: Kouhou
 
 on:
   schedule:
-    - cron:  '30 1 28 * *'
+    - cron:  '0 2 28 * *'
 jobs:
   build:
 
@@ -18,7 +18,9 @@ jobs:
       with:
         python-version: 3.8
     - name: Install java
-      run: sudo apt-get install default-jre
+      run: |
+        sudo apt update
+        sudo apt install default-jre
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
