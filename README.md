@@ -8,7 +8,7 @@ https://twitter.com/imabari119_bot
 ## er_kouhou.py
 
 + 広報の「救急病院など当直表」をツイート
-+ 毎月26日10:00更新
++ 毎月28日12:00更新
 
 ## er_calendar.py
 
