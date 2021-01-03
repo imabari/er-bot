@@ -1,6 +1,7 @@
 import datetime
 import os
 import re
+import time
 from urllib.parse import urljoin
 
 import requests
@@ -149,15 +150,19 @@ def scraping(html):
             api = tweepy.API(auth)
 
             # 140文字以内か
-            if len(twit_all) < 140:
+            if len(twit_all) <= 140:
                 # 全文ツイート
                 api.update_status(twit_all)
 
             else:
-                # 島嶼部他ツイート
-                api.update_status("\n\n".join(twit_date + twit_sima).strip())
                 # 陸地部ツイート
-                api.update_status("\n\n".join(twit_date + twit_riku).strip())
+                api.update_status("\n\n".join([twit_date, twit_riku]).strip())
+                
+                time.sleep(30)
+                
+                # 島嶼部他ツイート
+                api.update_status("\n\n".join([twit_date, twit_sima]).strip())
+
 
             break
 
