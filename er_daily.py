@@ -68,7 +68,7 @@ def scraping(html):
                 hospital["class"] = 8
 
                 # 外来受付時間を分割
-                t = [j for i in data[3:] for j in i.split("〜")]
+                t = [j for i in data[3:] for j in i.split("～")]
 
                 # 外来受付時間の前半開始時間と後半終了時間をセット
                 hospital["time"] = "～".join([t[0], t[-1]])
