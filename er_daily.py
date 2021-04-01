@@ -172,7 +172,7 @@ if __name__ == "__main__":
     base_url = "http://www.qq.pref.ehime.jp/qq38/WP0805/RP080501BL"
 
     payload = {
-        "blockCd[3]": "",
+        "_blockCd": "",
         "forward_next": "",
         "torinBlockDetailInfo.torinBlockDetail[0].blockCheckFlg": "0",
         "torinBlockDetailInfo.torinBlockDetail[1].blockCheckFlg": "0",
@@ -198,15 +198,15 @@ if __name__ == "__main__":
 
         # トークンを取得
         token = soup.find(
-            "input", attrs={"name": "org.apache.struts.taglib.html.TOKEN"}
+            "input", attrs={"name": "_csrf"}
         ).get("value")
 
         # トークンをセット
-        payload["org.apache.struts.taglib.html.TOKEN"] = token
+        payload["_csrf"] = token
 
         # URL生成
         url = urljoin(
-            base_url, soup.find("form", attrs={"name": "wp0805Form"}).get("action")
+            base_url, soup.find("form", attrs={"id": "_wp0805Form"}).get("action")
         )
 
         # URL確認
