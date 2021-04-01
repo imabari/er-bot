@@ -169,7 +169,7 @@ def scraping(html):
 
 if __name__ == "__main__":
 
-    base_url = "http://www.qq.pref.ehime.jp/qq38/WP0805/RP080501BL.do"
+    base_url = "http://www.qq.pref.ehime.jp/qq38/WP0805/RP080501BL"
 
     payload = {
         "blockCd[3]": "",
