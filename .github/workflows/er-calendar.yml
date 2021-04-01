@@ -3,6 +3,8 @@
 
 name: Calendar
 on:
+  repository_dispatch:
+    types: [on-demand-calendar]
   schedule:
     - cron:  '0 1 1,25 * *'
 
