@@ -49,4 +49,6 @@ if __name__ == "__main__":
     auth.set_access_token(access_token, access_token_secret)
 
     api = tweepy.API(auth)
-    api.update_with_media(status=twit, filename="kyukyu1.png")
+    
+    media_id = api.media_upload("kyukyu1.png").media_id
+	api.update_status(status=twit, media_ids=[media_id])
