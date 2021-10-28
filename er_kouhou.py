@@ -51,4 +51,4 @@ if __name__ == "__main__":
     api = tweepy.API(auth)
     
     media_id = api.media_upload("kyukyu1.png").media_id
-	api.update_status(status=twit, media_ids=[media_id])
+    api.update_status(status=twit, media_ids=[media_id])
