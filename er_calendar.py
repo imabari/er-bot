@@ -121,8 +121,13 @@ df4["診療科目ID"] = df4["診療科目ID"].fillna(8).astype(int)
 # 開始時間
 df4["開始時間"] = pd.to_timedelta(df4["日中"].str.split("～").str[0] + ":00")
 
-df4.sort_values(by=["date", "診療科目ID", "開始時間"]).reset_index(drop=True, inplace=True)
+# 17:00以降は夜間
+flag = df4["開始時間"] >= pd.Timedelta("17:00:00")
 
+df4.loc[flag, "夜間"] = df3.loc[flag, "日中"]
+df4.loc[flag, "日中"] = df3.loc[flag, "夜間"]
+
+df4.sort_values(by=["date", "診療科目ID", "開始時間"]).reset_index(drop=True, inplace=True)
 
 df = df4.reindex(
     columns=["日付", "曜日", "病院名", "住所", "TEL（昼）", "TEL（夜）", "診療科目", "日中", "夜間"]
