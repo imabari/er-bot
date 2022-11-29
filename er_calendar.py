@@ -13,7 +13,7 @@ dt_str = dt_now.date().isoformat()
 
 def scraping(html):
 
-    soup = BeautifulSoup(r.content, "html.parser")
+    soup = BeautifulSoup(html, "html.parser")
 
     tables = soup.find_all(
         "table", class_="comTblGyoumuCommon", summary="検索結果一覧を表示しています。"
