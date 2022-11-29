@@ -127,9 +127,9 @@ flag = df4["開始時間"] >= pd.Timedelta("17:00:00")
 df4.loc[flag, "夜間"] = df3.loc[flag, "日中"]
 df4.loc[flag, "日中"] = df3.loc[flag, "夜間"]
 
-df4.sort_values(by=["date", "診療科目ID", "開始時間"]).reset_index(drop=True, inplace=True)
+df5 = df4.sort_values(by=["date", "診療科目ID", "開始時間"]).reset_index(drop=True).copy()
 
-df = df4.reindex(
+df = df5.reindex(
     columns=["日付", "曜日", "病院名", "住所", "TEL（昼）", "TEL（夜）", "診療科目", "日中", "夜間"]
 )
 
