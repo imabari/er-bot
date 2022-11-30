@@ -141,3 +141,7 @@ p = pathlib.Path("data", f"{dt_str}.csv")
 p.parent.mkdir(parents=True, exist_ok=True)
 
 df.to_csv(p, index=False, encoding="utf_8_sig")
+
+# 最新
+p_latest = pathlib.Path("data", "latest.csv")
+df.to_csv(p_latest, index=False, encoding="utf_8_sig")
