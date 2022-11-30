@@ -193,9 +193,9 @@ else:
     # 陸地部ツイート
     api.update_status("\n\n".join([twit_date, twit_riku]))
 
-    time.sleep(30)
-
     if twit_sima:
+
+        time.sleep(30)
 
         # 島嶼部他ツイート
         api.update_status("\n\n".join([twit_date, twit_sima]))
