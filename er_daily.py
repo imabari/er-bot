@@ -1,218 +1,201 @@
 import datetime
 import os
-import re
 import time
 from urllib.parse import urljoin
 
+import pandas as pd
 import requests
 import tweepy
 from bs4 import BeautifulSoup
 
+base_url = "http://www.qq.pref.ehime.jp/qq38/WP0805/RP080501BL"
+
+payload = {
+    "_blockCd": "",
+    "forward_next": "",
+    "torinBlockDetailInfo.torinBlockDetail[0].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[1].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[2].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[3].blockCheckFlg": "1",
+    "torinBlockDetailInfo.torinBlockDetail[4].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[5].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[6].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[7].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[8].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[9].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[10].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[11].blockCheckFlg": "0",
+    "torinBlockDetailInfo.torinBlockDetail[12].blockCheckFlg": "0",
+}
 
 consumer_key = os.environ["CONSUMER_KEY"]
 consumer_secret = os.environ["CONSUMER_SECRET"]
 access_token = os.environ["ACCESS_TOKEN"]
 access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
 
+with requests.Session() as s:
 
-def scraping(html):
+    r = s.get(base_url)
 
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(r.content, "html.parser")
 
-    # スクレイピング
-    tables = soup.find_all(
-        "table", class_="comTblGyoumuCommon", summary="検索結果一覧を表示しています。"
+    # トークンを取得
+    token = soup.find("input", attrs={"name": "_csrf"}).get("value")
+
+    # トークンをセット
+    payload["_csrf"] = token
+
+    # URL生成
+    url = urljoin(
+        base_url, soup.find("form", attrs={"id": "_wp0805Form"}).get("action")
     )
 
-    JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
-    dt_now = datetime.datetime.now(JST)
+    # データ送信
+    r = s.post(url, data=payload)
 
-    for table in tables:
+soup = BeautifulSoup(r.content, "html.parser")
 
-        date, week = table.td.get_text(strip=True).split()
-        day = datetime.datetime.strptime(date, "%Y年%m月%d日")
+tables = soup.find_all("table", class_="comTblGyoumuCommon", summary="検索結果一覧を表示しています。")
 
-        if day.date() == dt_now.date():
+result = []
 
-            result = []
+for table in tables:
 
-            # 前データ　初期値
-            dprev = ["今治市医師会市民病院", "今治市別宮町７－１－４０"]
+    # 日付取得
+    date, week = table.td.get_text(strip=True).split()
 
-            for trs in table.find_all("tr", id=[1, 2, 3]):
+    for trs in table.find_all("tr", id=[1, 2, 3]):
+        data = (
+            [None]
+            + [list(td.stripped_strings) for td in trs.find_all("td", recursive=False)]
+            + [date, week]
+        )
+        result.append(data[-5:])
 
-                id = trs.get("id")
+df0 = (
+    pd.DataFrame(result)
+    .fillna(method="ffill")
+    .set_axis(["医療機関情報", "診療科目", "外来受付時間", "日付", "曜日"], axis=1)
+)
 
-                data = list(trs.stripped_strings)
 
-                # 市町村を削除
-                if id == "1" and data[0] == "今治市":
-                    del data[0]
+# 日付変換
+df0["date"] = pd.to_datetime(
+    df0["日付"]
+    .str.extract("(?P<year>\d{4})年(?P<month>\d{1,2})月(?P<day>\d{1,2})日")
+    .astype(int)
+).dt.date
 
-                # 電話番号を削除
-                for _ in range(2):
-                    if len(data) > 4 and data[2].startswith("TEL"):
-                        del data[2:4]
+# 医療機関情報
+df1 = (
+    df0["医療機関情報"]
+    .apply(pd.Series)
+    .drop([2, 4], axis=1)
+    .rename(columns={0: "病院名", 1: "住所", 3: "TEL（昼）", 5: "TEL（夜）"})
+)
 
-                # id=2の場合は病院名と住所を結合
-                if id == "2":
-                    data = dprev[:2] + data
+# 医療科目
+df2 = df0["診療科目"].apply(pd.Series).rename(columns={0: "診療科目"})
 
-                # print(id, data)
+# 外来受付時間
+df3 = df0["外来受付時間"].apply(pd.Series).rename(columns={0: "日中", 1: "夜間"}).fillna("")
 
-                # 前データとしてセット
-                dprev = data
+# 結合
+df4 = pd.concat([df0[["日付", "曜日", "date"]], df1[["病院名", "住所"]], df2, df3], axis=1)
 
-                hospital = dict(zip(["name", "address", "subject"], data[0:4]))
 
-                hospital["class"] = 8
+# 診療科目
+df4["診療科目ID"] = df4["診療科目"].map({"指定なし": 0, "内科": 2, "小児科": 4})
 
-                # 外来受付時間を分割
-                t = [j for i in data[3:] for j in i.split("～")]
+# 外科系
+df4["診療科目ID"].mask(df4["診療科目"].str.contains("外科", na=False), 1, inplace=True)
 
-                # 外来受付時間の前半開始時間と後半終了時間をセット
-                hospital["time"] = "～".join([t[0], t[-1]])
+# 内科系
+df4["診療科目ID"].mask(df4["診療科目"].str.contains("内科", na=False), 2, inplace=True)
 
-                # 外来受付時間の前半終了時間と後半開始時間が違う場合
-                if len(t) == 4 and t[1] != t[2]:
-                    hospital["time"] = "\n".join(["～".join(t[:2]), "～".join(t[2:])])
+# 島嶼部
+df4["診療科目ID"].mask(
+    df4["住所"].str.contains("吉海町|宮窪町|伯方町|上浦町|大三島町|関前", na=False), 9, inplace=True
+)
 
-                # 診療科目
-                # 救急   : 0
-                # 外科系 : 1
-                # 内科系 : 2
-                # 小児科 : 4
-                # その他 : 8
-                # 島嶼部 : 9
+# その他
+df4["診療科目ID"] = df4["診療科目ID"].fillna(8).astype(int)
 
-                # 外科系
-                if "外科" in hospital["subject"]:
-                    hospital["class"] = 1
+# 島嶼部
+df4["診療科目"].mask(
+    df4["住所"].str.contains("吉海町|宮窪町|伯方町|上浦町|大三島町|関前", na=False), "島嶼部", inplace=True
+)
 
-                # 内科系
-                elif "内科" in hospital["subject"]:
-                    hospital["class"] = 2
+# 救急
+df4["診療科目"].mask(df4["診療科目"] == "指定なし", "", inplace=True)
 
-                # 小児科
-                elif hospital["subject"] == "小児科":
-                    hospital["class"] = 4
+# 開始時間
+df4["開始時間"] = pd.to_timedelta(df4["日中"].str.split("～").str[0] + ":00")
 
-                # 救急
-                elif hospital["subject"] == "指定なし":
-                    hospital["class"] = 0
-                    hospital["subject"] = ""
+df5 = df4.sort_values(by=["date", "診療科目ID", "開始時間"]).reset_index(drop=True).copy()
 
-                # 住所が島嶼部の場合は、診療科目を島嶼部に変更
-                match = re.search("(吉海町|宮窪町|伯方町|上浦町|大三島町|関前)", hospital["address"])
 
-                if match:
+JST = datetime.timezone(datetime.timedelta(hours=+9))
+dt_now = datetime.datetime.now(JST).replace(tzinfo=None).date()
 
-                    hospital["class"] = 9
-                    hospital["subject"] = "島嶼部"
+gdf = df5.groupby(["date"]).get_group(dt_now).reset_index(drop=True)
 
-                # 診療科目に【】を追加
-                if hospital["subject"]:
-                    hospital["subject"] = f'【{hospital["subject"]}】'
 
-                # 病院情報をテキスト化
-                hospital["text"] = "\n".join(
-                    [hospital["subject"], hospital["name"], hospital["time"]]
-                ).strip()
+def make_twit(df):
 
-                # リストに追加
-                result.append(hospital)
+    result = []
 
-            # 診療科目、時間でソート
-            result.sort(key=lambda x: (x["class"], x["time"]))
+    for _, r in df.iterrows():
 
-            # 日付をテキスト化
-            twit_date = f"{date} {week}"
+        twit = []
 
-            # 陸地部で結合
-            twit_riku = "\n\n".join(
-                [i["text"] for i in result if i["class"] < 9]
-            ).strip()
+        if r["診療科目"]:
+            twit.append(f'【{r["診療科目"]}】')
 
-            # 島嶼部で結合
-            twit_sima = "\n\n".join(
-                [i["text"] for i in result if i["class"] > 8]
-            ).strip()
+        twit.append(f'{r["病院名"]}')
 
-            # 日付、陸地部、島嶼部を結合
-            twit_all = "\n\n".join([twit_date, twit_riku, twit_sima]).strip()
+        if r["夜間"]:
+            daytime = r["日中"].split("～")
+            nighttime = r["夜間"].split("～")
 
-            # print(twit_all)
-            # print("-" * 20)
-
-            auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-            auth.set_access_token(access_token, access_token_secret)
-
-            api = tweepy.API(auth)
-
-            # 140文字以内か
-            if len(twit_all) <= 140:
-                # 全文ツイート
-                api.update_status(twit_all)
+            if daytime[1] == nighttime[0]:
+                twit.append("～".join([daytime[0], nighttime[1]]))
 
             else:
-                # 陸地部ツイート
-                api.update_status("\n\n".join([twit_date, twit_riku]).strip())
-                
-                time.sleep(30)
-                
-                # 島嶼部他ツイート
-                api.update_status("\n\n".join([twit_date, twit_sima]).strip())
+                twit.append(f'{r["日中"]}')
+                twit.append(f'{r["夜間"]}')
+        else:
+            twit.append(f'{r["日中"]}')
+
+        result.append("\n".join(twit))
+
+    return "\n\n".join(result).strip()
 
 
-            break
+twit_date = f'{gdf.at[0, "日付"]} {gdf.at[0, "曜日"]}'
 
+twit_riku = make_twit(gdf[gdf["診療科目ID"] < 8])
+twit_sima = make_twit(gdf[gdf["診療科目ID"] >= 8])
 
-if __name__ == "__main__":
+twit_all = "\n\n".join([twit_date, twit_riku, twit_sima]).strip()
 
-    base_url = "http://www.qq.pref.ehime.jp/qq38/WP0805/RP080501BL"
+print(twit_all)
 
-    payload = {
-        "_blockCd": "",
-        "forward_next": "",
-        "torinBlockDetailInfo.torinBlockDetail[0].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[1].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[2].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[3].blockCheckFlg": "1",
-        "torinBlockDetailInfo.torinBlockDetail[4].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[5].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[6].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[7].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[8].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[9].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[10].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[11].blockCheckFlg": "0",
-        "torinBlockDetailInfo.torinBlockDetail[12].blockCheckFlg": "0",
-    }
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
 
-    # 地域選択ページのセッション作成
-    with requests.Session() as s:
+if len(twit_all) <= 140:
 
-        r = s.get(base_url)
+    api.update_status(twit_all)
 
-        soup = BeautifulSoup(r.content, "html.parser")
+else:
+    # 陸地部ツイート
+    api.update_status("\n\n".join([twit_date, twit_riku]))
 
-        # トークンを取得
-        token = soup.find(
-            "input", attrs={"name": "_csrf"}
-        ).get("value")
+    time.sleep(30)
 
-        # トークンをセット
-        payload["_csrf"] = token
+    if twit_sima:
 
-        # URL生成
-        url = urljoin(
-            base_url, soup.find("form", attrs={"id": "_wp0805Form"}).get("action")
-        )
-
-        # URL確認
-        # print(url)
-
-        # データ送信
-        r = s.post(url, data=payload)
-
-    scraping(r.content)
+        # 島嶼部他ツイート
+        api.update_status("\n\n".join([twit_date, twit_sima]))
