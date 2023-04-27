@@ -25,6 +25,7 @@ jobs:
       run: |
         python er_daily.py
       env:
+        BEARER_TOKEN: ${{ secrets.ER_BEARER_TOKEN }}
         CONSUMER_KEY: ${{ secrets.ER_CONSUMER_KEY }}
         CONSUMER_SECRET: ${{ secrets.ER_CONSUMER_SECRET }}
         ACCESS_TOKEN: ${{ secrets.ER_ACCESS_TOKEN }}
