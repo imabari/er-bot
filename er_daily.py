@@ -28,6 +28,7 @@ payload = {
     "torinBlockDetailInfo.torinBlockDetail[12].blockCheckFlg": "0",
 }
 
+bearer_token = os.environ["BEARER_TOKEN"]
 consumer_key = os.environ["CONSUMER_KEY"]
 consumer_secret = os.environ["CONSUMER_SECRET"]
 access_token = os.environ["ACCESS_TOKEN"]
@@ -181,21 +182,19 @@ twit_all = "\n\n".join([twit_date, twit_riku, twit_sima]).strip()
 
 print(twit_all)
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth)
+client = tweepy.Client(bearer_token, consumer_key, consumer_secret, access_token, access_token_secret)
 
 if len(twit_all) <= 140:
 
-    api.update_status(twit_all)
+    client.create_tweet(text=twit_all)
 
 else:
     # 陸地部ツイート
-    api.update_status("\n\n".join([twit_date, twit_riku]))
+    client.create_tweet(text="\n\n".join([twit_date, twit_riku]))
 
     if twit_sima:
 
         time.sleep(30)
 
         # 島嶼部他ツイート
-        api.update_status("\n\n".join([twit_date, twit_sima]))
+        client.create_tweet(text="\n\n".join([twit_date, twit_sima]))
