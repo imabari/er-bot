@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     p.pdf_to_images(pdf_file, imageType="png", dpi=200)
 
-    twit = f"{dt_now.month}月の救急病院などの当直表 #imabari\n{url}\n\n【子供の急な病気に困ったら】\n・小児救急電話相談（#8000）へ電話\n・こどもの救急 http://kodomo-qq.jp/\n\n【救急車を呼んだ方がいいか？迷ったら】\n・全国版救急受信アプリ　Ｑ助 https://www.fdma.go.jp/relocation/neuter/topics/filedList9_6/kyukyu_app/kyukyu_app_web/index.html"
+    twit = f"{dt_now.month}月の救急病院などの当直表 #imabari\n{url}\n\n【子供の急な病気に困ったら】\n・小児救急電話相談（#8000）へ電話\n・こどもの救急 http://kodomo-qq.jp/\n\n【救急車を呼んだ方がいいか？迷ったら】\n・えひめ救急電話相談（#7119）\n・全国版救急受信アプリ　Ｑ助 https://www.fdma.go.jp/relocation/neuter/topics/filedList9_6/kyukyu_app/kyukyu_app_web/index.html"
 
     consumer_key = os.environ["CONSUMER_KEY"]
     consumer_secret = os.environ["CONSUMER_SECRET"]
