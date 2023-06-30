@@ -4,8 +4,6 @@
 name: Kouhou
 
 on:
-  schedule:
-    - cron:  '0 3 28 * *'
   workflow_dispatch:
 jobs:
   build:
