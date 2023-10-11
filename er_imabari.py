@@ -146,7 +146,7 @@ df2 = pd.read_csv("hosp_list.csv")
 df3 = pd.merge(df1, df2, on="name", how="left")
 
 df3["date"] = df3["date"].dt.strftime("%Y-%m-%d")
-df3["time"] = df3["date"].str.replace("\n", " / ")
+df3["time"] = df3["time"].str.replace("\n", " / ")
 
 grp = (
     df3.groupby(["date", "date_week"])
