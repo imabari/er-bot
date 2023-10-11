@@ -139,13 +139,17 @@ df1.to_csv(p_csv)
 
 # json作成
 
-df2 = df1.copy()
+# 位置情報付与
+df2 = pd.read_csv("hosp_list.csv")
 
-df2["date"] = df2["date"].dt.strftime("%Y-%m-%d")
-df2["time"] = df2["date"].str.replace("\n", " / ")
+# 医療機関と位置情報を結合する
+df3 = pd.merge(df1, df2, on="name", how="left")
+
+df3["date"] = df3["date"].dt.strftime("%Y-%m-%d")
+df3["time"] = df3["date"].str.replace("\n", " / ")
 
 grp = (
-    df2.groupby(["date", "date_week"])
+    df3.groupby(["date", "date_week"])
     .apply(lambda x: x.drop(columns=["date", "date_week"]).to_dict(orient="records"))
     .reset_index()
 )
