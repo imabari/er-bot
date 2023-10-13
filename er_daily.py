@@ -14,7 +14,11 @@ today_in_japan = datetime.datetime.now(JST).strftime("%Y-%m-%d")
 
 for data in r.json():
     if data["date"] == today_in_japan:
-        hospital = ["\n".join([i["name"], i["time"]]) for i in data["hospital"]]
+        hospital = []
+
+        for i in data["hospital"]:
+            kind = f'【{i["type"]}】' if i["type"] != "救急" else ""
+            hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
 
         twit = "\n\n".join([data["date_week"]] + hospital)
 
