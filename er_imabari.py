@@ -124,6 +124,9 @@ df0["診療科目ID"].mask(simanami_flag, 9, inplace=True)
 # その他
 df0["診療科目ID"] = df0["診療科目ID"].fillna(8).astype(int)
 
+# 救急
+df0["type"] = df0["type"].replace({"指定なし": "救急"})
+
 df1 = (
     df0.sort_values(by=["date", "診療科目ID", "time"])
     .reset_index(drop=True)
