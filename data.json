@@ -1,21 +1,5 @@
 [
     {
-        "date":"2023-10-23",
-        "date_week":"2023年10月23日 月曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"瀬戸内海病院",
-                "address":"今治市北宝来町２－４－９",
-                "tel":"0898-23-0655",
-                "time":"08:30～翌日08:30",
-                "lat":34.0658354,
-                "lon":132.9940533,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
-            }
-        ]
-    },
-    {
         "date":"2023-10-24",
         "date_week":"2023年10月24日 火曜日",
         "hospital":[
@@ -688,6 +672,22 @@
                 "lat":34.1487981,
                 "lon":133.0442599,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.1487981,133.0442599"
+            }
+        ]
+    },
+    {
+        "date":"2023-11-24",
+        "date_week":"2023年11月24日 金曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "name":"木原病院",
+                "address":"今治市別宮町３－７－８",
+                "tel":"0898-23-0634",
+                "time":"08:30～翌日08:30",
+                "lat":34.0692414,
+                "lon":132.9947473,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
             }
         ]
     }
