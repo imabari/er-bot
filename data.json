@@ -1,21 +1,5 @@
 [
     {
-        "date":"2023-10-24",
-        "date_week":"2023年10月24日 火曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"今治第一病院",
-                "address":"今治市宮下町１―１―２１",
-                "tel":"0898-23-2000",
-                "time":"08:30～翌日08:30",
-                "lat":34.0663904,
-                "lon":132.9895736,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736"
-            }
-        ]
-    },
-    {
         "date":"2023-10-25",
         "date_week":"2023年10月25日 水曜日",
         "hospital":[
@@ -28,16 +12,6 @@
                 "lat":34.0853711,
                 "lon":132.9869297,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            },
-            {
-                "type":"救急",
-                "name":"今治セントラルクリニック",
-                "address":"今治市松本町２丁目６番地６",
-                "tel":"0898-22-5251",
-                "time":"17:15～22:30",
-                "lat":34.0629614,
-                "lon":133.0028127,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0629614,133.0028127"
             }
         ]
     },
@@ -688,6 +662,32 @@
                 "lat":34.0692414,
                 "lon":132.9947473,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
+            }
+        ]
+    },
+    {
+        "date":"2023-11-25",
+        "date_week":"2023年11月25日 土曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "name":"白石病院",
+                "address":"今治市松本町１－５－９",
+                "tel":"0898-32-4135",
+                "time":"08:30～17:30",
+                "lat":34.0656286,
+                "lon":133.0006026,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
+            },
+            {
+                "type":"救急",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"17:30～翌日08:30",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
             }
         ]
     }
