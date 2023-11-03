@@ -1,21 +1,5 @@
 [
     {
-        "date":"2023-11-02",
-        "date_week":"2023年11月2日 木曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"白石病院",
-                "address":"今治市松本町１－５－９",
-                "tel":"0898-32-4135",
-                "time":"08:30～翌日08:30",
-                "lat":34.0656286,
-                "lon":133.0006026,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
-            }
-        ]
-    },
-    {
         "date":"2023-11-03",
         "date_week":"2023年11月3日 祝日",
         "hospital":[
@@ -28,26 +12,6 @@
                 "lat":34.0658354,
                 "lon":132.9940533,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
-            },
-            {
-                "type":"小児科",
-                "name":"まつうらバンビクリニック",
-                "address":"今治市北宝来町３－３－３４",
-                "tel":"0898-22-0573",
-                "time":"09:00～17:00",
-                "lat":34.0669145,
-                "lon":132.9922638,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0669145,132.9922638"
-            },
-            {
-                "type":"島しょ部",
-                "name":"しのざき整形外科",
-                "address":"今治市伯方町伊方甲１０２２－１",
-                "tel":"0897-73-1221",
-                "time":"09:00～17:00",
-                "lat":34.2209377,
-                "lon":133.0674465,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2209377,133.0674465"
             }
         ]
     },
