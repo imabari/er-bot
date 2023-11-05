@@ -1,21 +1,5 @@
 [
     {
-        "date":"2023-11-04",
-        "date_week":"2023年11月4日 土曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"今治市医師会市民病院",
-                "address":"今治市別宮町７－１－４０",
-                "tel":"0898-22-7611",
-                "time":"17:30～翌日08:30",
-                "lat":34.0736823,
-                "lon":132.9916019,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
-            }
-        ]
-    },
-    {
         "date":"2023-11-05",
         "date_week":"2023年11月5日 日曜日",
         "hospital":[
@@ -28,26 +12,6 @@
                 "lat":34.0736823,
                 "lon":132.9916019,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
-            },
-            {
-                "type":"小児科",
-                "name":"県立今治病院",
-                "address":"今治市石井町４－５－５",
-                "tel":"0898-32-7111",
-                "time":"09:00～17:00",
-                "lat":34.0853711,
-                "lon":132.9869297,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            },
-            {
-                "type":"島しょ部",
-                "name":"有津むらかみクリニック",
-                "address":"今治市伯方町有津甲２３３１番地",
-                "tel":"0897-7-3200",
-                "time":"09:00～17:00",
-                "lat":34.2022441,
-                "lon":133.0919751,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2022441,133.0919751"
             }
         ]
     },
