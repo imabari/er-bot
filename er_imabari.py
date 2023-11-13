@@ -138,7 +138,7 @@ df1
 p_csv = pathlib.Path("dist", "latest.csv")
 p_csv.parent.mkdir(parents=True, exist_ok=True)
 
-df1.to_csv(p_csv, encoding="utf_8_sig)
+df1.to_csv(p_csv, encoding="utf_8_sig")
 
 # json作成
 
