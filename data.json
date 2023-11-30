@@ -1,22 +1,5 @@
 [
     {
-        "date":"2023-11-29",
-        "date_week":"2023年11月29日 水曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"済生会今治病院",
-                "address":"今治市喜田村７丁目１番６号",
-                "tel":"0898-47-2500",
-                "time":"08:30～翌日08:30",
-                "place":"今治市喜田村七丁目",
-                "lat":34.0442409,
-                "lon":133.0203312,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0442409,133.0203312"
-            }
-        ]
-    },
-    {
         "date":"2023-11-30",
         "date_week":"2023年11月30日 木曜日",
         "hospital":[
@@ -694,6 +677,45 @@
                 "lat":34.0663904,
                 "lon":132.9895736,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736"
+            }
+        ]
+    },
+    {
+        "date":"2023-12-31",
+        "date_week":"2023年12月31日 日曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "name":"白石病院",
+                "address":"今治市松本町１－５－９",
+                "tel":"0898-32-4135",
+                "time":"08:30～翌日08:30",
+                "place":"今治市松本町一丁目",
+                "lat":34.0656286,
+                "lon":133.0006026,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
+            },
+            {
+                "type":"小児科",
+                "name":"あおい小児科",
+                "address":"今治市東村５丁目９－３７",
+                "tel":"0898-47-0033",
+                "time":"09:00～17:00",
+                "place":"今治市東村五丁目",
+                "lat":34.038256,
+                "lon":133.0214225,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.038256,133.0214225"
+            },
+            {
+                "type":"島しょ部",
+                "name":"斎藤クリニック",
+                "address":"今治市吉海町仁江１６番地２号",
+                "tel":null,
+                "time":"09:00～17:00",
+                "place":"今治市吉海町仁江",
+                "lat":34.1487981,
+                "lon":133.0442599,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.1487981,133.0442599"
             }
         ]
     }
