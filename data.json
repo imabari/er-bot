@@ -1,22 +1,5 @@
 [
     {
-        "date":"2023-12-28",
-        "date_week":"2023年12月28日 木曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"県立今治病院",
-                "address":"今治市石井町４－５－５",
-                "tel":"0898-32-7111",
-                "time":"08:30～翌日08:30",
-                "place":"今治市石井町四丁目",
-                "lat":34.0853711,
-                "lon":132.9869297,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            }
-        ]
-    },
-    {
         "date":"2023-12-29",
         "date_week":"2023年12月29日 金曜日",
         "hospital":[
@@ -760,6 +743,23 @@
                 "lat":34.203984,
                 "lon":133.11282,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.203984,133.11282"
+            }
+        ]
+    },
+    {
+        "date":"2024-01-29",
+        "date_week":"2024年1月29日 月曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "name":"瀬戸内海病院",
+                "address":"今治市北宝来町２－４－９",
+                "tel":"0898-23-0655",
+                "time":"08:30～翌日08:30",
+                "place":"今治市北宝来町二丁目",
+                "lat":34.0658354,
+                "lon":132.9940533,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
             }
         ]
     }
