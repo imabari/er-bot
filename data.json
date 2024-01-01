@@ -1,22 +1,5 @@
 [
     {
-        "date":"2023-12-31",
-        "date_week":"2023年12月31日 日曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"白石病院",
-                "address":"今治市松本町１－５－９",
-                "tel":"0898-32-4135",
-                "time":"08:30～翌日08:30",
-                "place":"今治市松本町一丁目",
-                "lat":34.0656286,
-                "lon":133.0006026,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
-            }
-        ]
-    },
-    {
         "date":"2024-01-01",
         "date_week":"2024年1月1日 祝日",
         "hospital":[
@@ -30,17 +13,6 @@
                 "lat":34.0442409,
                 "lon":133.0203312,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0442409,133.0203312"
-            },
-            {
-                "type":"島しょ部",
-                "name":"大三島中央病院",
-                "address":"今治市大三島町宮浦５３１８－１",
-                "tel":"0897-82-1111",
-                "time":"09:00～17:00",
-                "place":"今治市大三島町宮浦",
-                "lat":34.2460837,
-                "lon":132.9974115,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2460837,132.9974115"
             }
         ]
     },
