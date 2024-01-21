@@ -1,22 +1,5 @@
 [
     {
-        "date":"2024-01-20",
-        "date_week":"2024年1月20日 土曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "name":"今治市医師会市民病院",
-                "address":"今治市別宮町７－１－４０",
-                "tel":"0898-22-7611",
-                "time":"08:30～翌日08:30",
-                "place":"今治市別宮町七丁目",
-                "lat":34.0736823,
-                "lon":132.9916019,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
-            }
-        ]
-    },
-    {
         "date":"2024-01-21",
         "date_week":"2024年1月21日 日曜日",
         "hospital":[
@@ -30,28 +13,6 @@
                 "lat":34.0658354,
                 "lon":132.9940533,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
-            },
-            {
-                "type":"小児科",
-                "name":"丹こどもクリニック",
-                "address":"今治市末広町３丁目４の１２",
-                "tel":"0898-23-3200",
-                "time":"09:00～17:00",
-                "place":"今治市末広町三丁目",
-                "lat":34.0616346,
-                "lon":133.0052467,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0616346,133.0052467"
-            },
-            {
-                "type":"島しょ部",
-                "name":"片山医院",
-                "address":"今治市吉海町幸新田７１",
-                "tel":"0897-84-2620",
-                "time":"09:00～17:00",
-                "place":"今治市吉海町幸新田",
-                "lat":34.1468571,
-                "lon":133.0423387,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.1468571,133.0423387"
             }
         ]
     },
@@ -749,6 +710,23 @@
                 "lat":34.0442409,
                 "lon":133.0203312,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0442409,133.0203312"
+            }
+        ]
+    },
+    {
+        "date":"2024-02-21",
+        "date_week":"2024年2月21日 水曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "name":"木原病院",
+                "address":"今治市別宮町３－７－８",
+                "tel":"0898-23-0634",
+                "time":"08:30～翌日08:30",
+                "place":"今治市別宮町三丁目",
+                "lat":34.0692414,
+                "lon":132.9947473,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
             }
         ]
     }
