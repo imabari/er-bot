@@ -85,6 +85,7 @@ df0[["name", "address", "tel", "night_tel"]] = (
 )
 
 # 医療科目
+df0["medical"] = df0["診療科目"].str[0]
 df0["type"] = df0["診療科目"].str[0]
 
 
@@ -130,7 +131,7 @@ df0["type"] = df0["type"].replace({"指定なし": "救急"})
 df1 = (
     df0.sort_values(by=["date", "診療科目ID", "time"])
     .reset_index(drop=True)
-    .reindex(columns=["date", "date_week", "type", "name", "address", "tel", "time"])
+    .reindex(columns=["date", "date_week", "type", "medical", "name", "address", "tel", "time"])
     .copy()
 )
 df1
