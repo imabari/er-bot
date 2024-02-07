@@ -30,3 +30,5 @@ jobs:
         CONSUMER_SECRET: ${{ secrets.ER_CONSUMER_SECRET }}
         ACCESS_TOKEN: ${{ secrets.ER_ACCESS_TOKEN }}
         ACCESS_TOKEN_SECRET: ${{ secrets.ER_ACCESS_TOKEN_SECRET }}
+        AT_USER: ${{ secrets.ER_AT_USER }}
+        AT_PASS: ${{ secrets.ER_AT_PASS }}
