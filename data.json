@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-02-20",
-        "date_week":"2024年2月20日 火曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"済生会今治病院",
-                "address":"今治市喜田村７丁目１番６号",
-                "tel":"0898-47-2500",
-                "time":"08:30～翌日08:30",
-                "place":"今治市喜田村七丁目",
-                "lat":34.0442409,
-                "lon":133.0203312,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0442409,133.0203312"
-            }
-        ]
-    },
-    {
         "date":"2024-02-21",
         "date_week":"2024年2月21日 水曜日",
         "hospital":[
@@ -788,6 +770,36 @@
                 "lat":34.0692414,
                 "lon":132.9947473,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
+            }
+        ]
+    },
+    {
+        "date":"2024-03-23",
+        "date_week":"2024年3月23日 土曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"白石病院",
+                "address":"今治市松本町１－５－９",
+                "tel":"0898-32-4135",
+                "time":"08:30～17:30",
+                "place":"今治市松本町一丁目",
+                "lat":34.0656286,
+                "lon":133.0006026,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
+            },
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"17:30～翌日08:30",
+                "place":"今治市別宮町七丁目",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
             }
         ]
     }
