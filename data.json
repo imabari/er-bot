@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-17",
-        "date_week":"2024年3月17日 日曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"瀬戸内海病院",
-                "address":"今治市北宝来町２－４－９",
-                "tel":"0898-23-0655",
-                "time":"08:30～翌日08:30",
-                "place":"今治市北宝来町二丁目",
-                "lat":34.0658354,
-                "lon":132.9940533,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
-            }
-        ]
-    },
-    {
         "date":"2024-03-18",
         "date_week":"2024年3月18日 月曜日",
         "hospital":[
@@ -776,6 +758,24 @@
                 "lat":34.0663904,
                 "lon":132.9895736,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-18",
+        "date_week":"2024年4月18日 木曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"白石病院",
+                "address":"今治市松本町１－５－９",
+                "tel":"0898-32-4135",
+                "time":"08:30～翌日08:30",
+                "place":"今治市松本町一丁目",
+                "lat":34.0656286,
+                "lon":133.0006026,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
             }
         ]
     }
