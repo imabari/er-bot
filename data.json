@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-18",
-        "date_week":"2024年3月18日 月曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"広瀬病院",
-                "address":"今治市喜田村６丁目５番１号",
-                "tel":"0898-47-0100",
-                "time":"08:30～翌日08:30",
-                "place":"今治市拝志",
-                "lat":34.04326043,
-                "lon":133.0239411,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.04326043,133.0239411"
-            }
-        ]
-    },
-    {
         "date":"2024-03-19",
         "date_week":"2024年3月19日 火曜日",
         "hospital":[
@@ -32,18 +14,6 @@
                 "lat":34.0853711,
                 "lon":132.9869297,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            },
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"今治セントラルクリニック",
-                "address":"今治市松本町２丁目６番地６",
-                "tel":"0898-22-5251",
-                "time":"17:15～22:30",
-                "place":"今治市松本町二丁目",
-                "lat":34.0629614,
-                "lon":133.0028127,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0629614,133.0028127"
             }
         ]
     },
@@ -776,6 +746,24 @@
                 "lat":34.0656286,
                 "lon":133.0006026,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-19",
+        "date_week":"2024年4月19日 金曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"木原病院",
+                "address":"今治市別宮町３－７－８",
+                "tel":"0898-23-0634",
+                "time":"08:30～翌日08:30",
+                "place":"今治市別宮町三丁目",
+                "lat":34.0692414,
+                "lon":132.9947473,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
             }
         ]
     }
