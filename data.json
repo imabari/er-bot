@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-19",
-        "date_week":"2024年3月19日 火曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"県立今治病院",
-                "address":"今治市石井町４－５－５",
-                "tel":"0898-32-7111",
-                "time":"08:30～17:15 \/ 22:30～翌日08:30",
-                "place":"今治市石井町四丁目",
-                "lat":34.0853711,
-                "lon":132.9869297,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            }
-        ]
-    },
-    {
         "date":"2024-03-20",
         "date_week":"2024年3月20日 祝日",
         "hospital":[
@@ -32,30 +14,6 @@
                 "lat":34.0663904,
                 "lon":132.9895736,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736"
-            },
-            {
-                "type":"小児科",
-                "medical":"小児科",
-                "name":"丹こどもクリニック",
-                "address":"今治市末広町３丁目４の１２",
-                "tel":"0898-23-3200",
-                "time":"09:00～17:00",
-                "place":"今治市末広町三丁目",
-                "lat":34.0616346,
-                "lon":133.0052467,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0616346,133.0052467"
-            },
-            {
-                "type":"島しょ部",
-                "medical":"指定なし",
-                "name":"斎藤クリニック",
-                "address":"今治市吉海町仁江１６番地２号",
-                "tel":null,
-                "time":"09:00～17:00",
-                "place":"今治市吉海町仁江",
-                "lat":34.1487981,
-                "lon":133.0442599,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.1487981,133.0442599"
             }
         ]
     },
@@ -764,6 +722,24 @@
                 "lat":34.0692414,
                 "lon":132.9947473,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0692414,132.9947473"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-20",
+        "date_week":"2024年4月20日 土曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"08:30～翌日08:30",
+                "place":"今治市別宮町七丁目",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
             }
         ]
     }
