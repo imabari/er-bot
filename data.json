@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-20",
-        "date_week":"2024年3月20日 祝日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"今治第一病院",
-                "address":"今治市宮下町１―１―２１",
-                "tel":"0898-23-2000",
-                "time":"08:30～翌日08:30",
-                "place":"今治市宮下町一丁目",
-                "lat":34.0663904,
-                "lon":132.9895736,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736"
-            }
-        ]
-    },
-    {
         "date":"2024-03-21",
         "date_week":"2024年3月21日 木曜日",
         "hospital":[
@@ -740,6 +722,48 @@
                 "lat":34.0736823,
                 "lon":132.9916019,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-21",
+        "date_week":"2024年4月21日 日曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"瀬戸内海病院",
+                "address":"今治市北宝来町２－４－９",
+                "tel":"0898-23-0655",
+                "time":"08:30～翌日08:30",
+                "place":"今治市北宝来町二丁目",
+                "lat":34.0658354,
+                "lon":132.9940533,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
+            },
+            {
+                "type":"小児科",
+                "medical":"小児科",
+                "name":"まつうらバンビクリニック",
+                "address":"今治市北宝来町３－３－３４",
+                "tel":"0898-22-0573",
+                "time":"09:00～17:00",
+                "place":"今治市北宝来町三丁目",
+                "lat":34.0669145,
+                "lon":132.9922638,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0669145,132.9922638"
+            },
+            {
+                "type":"島しょ部",
+                "medical":"指定なし",
+                "name":"有津むらかみクリニック",
+                "address":"今治市伯方町有津甲２３３１番地",
+                "tel":"0897-7-3200",
+                "time":"09:00～17:00",
+                "place":"今治市伯方町有津甲",
+                "lat":34.2022441,
+                "lon":133.0919751,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2022441,133.0919751"
             }
         ]
     }
