@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-27",
-        "date_week":"2024年3月27日 水曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"県立今治病院",
-                "address":"今治市石井町４－５－５",
-                "tel":"0898-32-7111",
-                "time":"08:30～翌日08:30",
-                "place":"今治市石井町四丁目",
-                "lat":34.0853711,
-                "lon":132.9869297,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297"
-            }
-        ]
-    },
-    {
         "date":"2024-03-28",
         "date_week":"2024年3月28日 木曜日",
         "hospital":[
@@ -740,6 +722,60 @@
                 "lat":34.0736823,
                 "lon":132.9916019,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-28",
+        "date_week":"2024年4月28日 日曜日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"08:30～翌日08:30",
+                "place":"今治市別宮町七丁目",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
+            },
+            {
+                "type":"内科",
+                "medical":"内科",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"09:00～17:30",
+                "place":"今治市別宮町七丁目",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
+            },
+            {
+                "type":"小児科",
+                "medical":"小児科",
+                "name":"今治市医師会市民病院",
+                "address":"今治市別宮町７－１－４０",
+                "tel":"0898-22-7611",
+                "time":"09:00～17:00",
+                "place":"今治市別宮町七丁目",
+                "lat":34.0736823,
+                "lon":132.9916019,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019"
+            },
+            {
+                "type":"島しょ部",
+                "medical":"指定なし",
+                "name":"医療法人　喜多嶋診療所",
+                "address":"今治市伯方町木浦甲３４４９",
+                "tel":"0897-72-0250",
+                "time":"09:00～17:00",
+                "place":"今治市伯方町木浦甲",
+                "lat":34.203984,
+                "lon":133.11282,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.203984,133.11282"
             }
         ]
     }
