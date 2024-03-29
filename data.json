@@ -1,23 +1,5 @@
 [
     {
-        "date":"2024-03-28",
-        "date_week":"2024年3月28日 木曜日",
-        "hospital":[
-            {
-                "type":"救急",
-                "medical":"指定なし",
-                "name":"白石病院",
-                "address":"今治市松本町１－５－９",
-                "tel":"0898-32-4135",
-                "time":"08:30～翌日08:30",
-                "place":"今治市松本町一丁目",
-                "lat":34.0656286,
-                "lon":133.0006026,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0656286,133.0006026"
-            }
-        ]
-    },
-    {
         "date":"2024-03-29",
         "date_week":"2024年3月29日 金曜日",
         "hospital":[
@@ -776,6 +758,48 @@
                 "lat":34.203984,
                 "lon":133.11282,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.203984,133.11282"
+            }
+        ]
+    },
+    {
+        "date":"2024-04-29",
+        "date_week":"2024年4月29日 祝日",
+        "hospital":[
+            {
+                "type":"救急",
+                "medical":"指定なし",
+                "name":"瀬戸内海病院",
+                "address":"今治市北宝来町２－４－９",
+                "tel":"0898-23-0655",
+                "time":"08:30～翌日08:30",
+                "place":"今治市北宝来町二丁目",
+                "lat":34.0658354,
+                "lon":132.9940533,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533"
+            },
+            {
+                "type":"小児科",
+                "medical":"小児科",
+                "name":"あおい小児科",
+                "address":"今治市東村５丁目９－３７",
+                "tel":"0898-47-0033",
+                "time":"09:00～17:00",
+                "place":"今治市東村五丁目",
+                "lat":34.038256,
+                "lon":133.0214225,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.038256,133.0214225"
+            },
+            {
+                "type":"島しょ部",
+                "medical":"指定なし",
+                "name":"しのざき整形外科",
+                "address":"今治市伯方町伊方甲１０２２－１",
+                "tel":"0897-73-1221",
+                "time":"09:00～17:00",
+                "place":"今治市伯方町伊方甲",
+                "lat":34.2209377,
+                "lon":133.0674465,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2209377,133.0674465"
             }
         ]
     }
