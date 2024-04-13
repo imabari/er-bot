@@ -19,7 +19,15 @@ for data in r.json():
         hospital = []
 
         for i in data["hospital"]:
-            kind = f'【{i["type"]}】' if i["type"] != "救急" else ""
+            
+            match i["type"]:
+                case 0:
+                    kind = ""
+                case 9:
+                    kind = "【島しょ部】"
+                case _:
+                    kind = f'【{i["medical"]}】'
+
             hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
 
         twit = "\n\n".join([data["date_week"]] + hospital)
