@@ -24,6 +24,8 @@ jobs:
     - name: Run script
       run: |
         python er_imabari.py
+      env:
+        URL: ${{ secrets.URL }}
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
