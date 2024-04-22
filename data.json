@@ -1,25 +1,5 @@
 [
     {
-        "date":"2024-04-20",
-        "date_week":"2024年4月20日 土曜日",
-        "hospital":[
-            {
-                "type":0,
-                "medical":"指定なし",
-                "name":"医師会市民病院",
-                "time":"08:30～翌08:30",
-                "post_code":"794-0026",
-                "address":"今治市別宮町７－１－４０",
-                "daytime":"0898-22-7611",
-                "nighttime":"-",
-                "lat":34.0736823,
-                "lon":132.9916019,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0736823,132.9916019",
-                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=1385500350&kikanKbn=1"
-            }
-        ]
-    },
-    {
         "date":"2024-04-21",
         "date_week":"2024年4月21日 日曜日",
         "hospital":[
@@ -36,34 +16,6 @@
                 "lon":132.9940533,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0658354,132.9940533",
                 "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=1385502530&kikanKbn=1"
-            },
-            {
-                "type":7,
-                "medical":"小児科",
-                "name":"まつうらバンビクリニック",
-                "time":"09:00～12:00 \/ 14:00～17:00",
-                "post_code":"794-0028",
-                "address":"今治市北宝来町３－３－３４",
-                "daytime":"0898-22-0573",
-                "nighttime":"0898-22-0573",
-                "lat":34.0669145,
-                "lon":132.9922638,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0669145,132.9922638",
-                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=2385522160&kikanKbn=2"
-            },
-            {
-                "type":9,
-                "medical":"指定なし",
-                "name":"有津むらかみクリニック",
-                "time":"09:00～17:00",
-                "post_code":"794-2301",
-                "address":"今治市伯方町有津甲２３３１番地",
-                "daytime":"0897-72-3200",
-                "nighttime":"0897-72-3200",
-                "lat":34.2022441,
-                "lon":133.0919751,
-                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.2022441,133.0919751",
-                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=2388633285&kikanKbn=2"
             }
         ]
     },
@@ -924,6 +876,60 @@
                 "lon":133.0239411,
                 "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.04326043,133.0239411",
                 "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=1385504000&kikanKbn=1"
+            }
+        ]
+    },
+    {
+        "date":"2024-05-21",
+        "date_week":"2024年5月21日 火曜日",
+        "hospital":[
+            {
+                "type":0,
+                "medical":"指定なし",
+                "name":"今治第一病院",
+                "time":"08:30～翌08:30",
+                "post_code":"794-0052",
+                "address":"今治市宮下町１―１―２１",
+                "daytime":"0898-23-2000",
+                "nighttime":"-",
+                "lat":34.0663904,
+                "lon":132.9895736,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0663904,132.9895736",
+                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=1385500640&kikanKbn=1"
+            }
+        ]
+    },
+    {
+        "date":"2024-05-22",
+        "date_week":"2024年5月22日 水曜日",
+        "hospital":[
+            {
+                "type":0,
+                "medical":"指定なし",
+                "name":"県立今治病院",
+                "time":"08:30～17:15 \/ 22:30～翌08:30",
+                "post_code":"794-0006",
+                "address":"今治市石井町４－５－５",
+                "daytime":"0898-32-7111",
+                "nighttime":"0898-32-7111",
+                "lat":34.0853711,
+                "lon":132.9869297,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0853711,132.9869297",
+                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=1385503830&kikanKbn=1"
+            },
+            {
+                "type":0,
+                "medical":"指定なし",
+                "name":"今治セントラルクリニック",
+                "time":"17:15～22:30",
+                "post_code":"794-0041",
+                "address":"今治市松本町２丁目６番地６",
+                "daytime":"0898-22-5251",
+                "nighttime":"0898-34-0088",
+                "lat":34.0629614,
+                "lon":133.0028127,
+                "navi":"https:\/\/www.google.com\/maps\/dir\/?api=1&destination=34.0629614,133.0028127",
+                "link":"https:\/\/www.iryou.teikyouseido.mhlw.go.jp\/znk-web\/juminkanja\/S2430\/initialize?prefCd=38&kikanCd=2388633204&kikanKbn=2"
             }
         ]
     }
