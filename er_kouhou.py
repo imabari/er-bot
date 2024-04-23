@@ -78,7 +78,7 @@ def main():
             access_token,
             access_token_secret,
         )
-        client.create_tweet(text="広報いまばりの救急病院が更新されています")
+        client.create_tweet(text=f"広報いまばりの救急病院が更新されています\n{url}")
 
 
 if __name__ == "__main__":
