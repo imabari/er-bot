@@ -2,24 +2,25 @@ import hashlib
 import json
 import os
 import pathlib
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
+from atproto import Client
+import pdfbox
 
 import requests
-import tweepy
 
 
 def download_file(url, save_path):
     response = requests.get(url)
     response.raise_for_status()
 
-    with open(save_path, "wb") as fw:
-        fw.write(response.content)
+    with open(save_path, "wb") as fpw:
+        fpw.write(response.content)
 
 
 def calculate_file_hash(file_path):
     try:
-        with open(file_path, "rb") as fr:
-            digest = hashlib.file_digest(fr, "sha256")
+        with open(file_path, "rb") as fpr:
+            digest = hashlib.file_digest(fpr, "sha256")
             return digest.hexdigest()
     except FileNotFoundError:
         print("ファイルが見つかりません")
@@ -28,8 +29,8 @@ def calculate_file_hash(file_path):
 
 def load_previous_hash(hash_file):
     try:
-        with open(hash_file, "r") as fp:
-            data = json.load(fp)
+        with open(hash_file, "r") as fhr:
+            data = json.load(fhr)
             return data.get("hash")
     except FileNotFoundError:
         print("前回のハッシュファイルが見つかりませんでした")
@@ -40,8 +41,8 @@ def load_previous_hash(hash_file):
 
 
 def save_hash_to_file(hash_value, hash_file):
-    with open(hash_file, "w") as fh:
-        json.dump({"hash": hash_value}, fh)
+    with open(hash_file, "w") as fhw:
+        json.dump({"hash": hash_value}, fhw)
 
 
 def main():
@@ -50,6 +51,10 @@ def main():
     response.raise_for_status()
 
     url = urljoin(response.url, "kyukyu.pdf")
+
+    yyyymm = urlparse(response.url.url).path.strip("/").split("/")[-1]
+    year = int(yyyymm[:4])
+    month = int(yyyymm[4:])
 
     save_path = pathlib.Path(pathlib.PurePath(url).name)
     save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -63,22 +68,22 @@ def main():
     if previous_hash != current_hash:
         save_hash_to_file(current_hash, hash_file)
 
-        # Twitterへのツイート
+        at_user = os.environ["AT_USER"]
+        at_pass = os.environ["AT_PASS"]
 
-        bearer_token = os.environ["BEARER_TOKEN"]
-        consumer_key = os.environ["CONSUMER_KEY"]
-        consumer_secret = os.environ["CONSUMER_SECRET"]
-        access_token = os.environ["ACCESS_TOKEN"]
-        access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
+        api = Client()
+        api.login(at_user, at_pass)
 
-        client = tweepy.Client(
-            bearer_token,
-            consumer_key,
-            consumer_secret,
-            access_token,
-            access_token_secret,
-        )
-        client.create_tweet(text=f"広報いまばりの救急病院が更新されています\n{url}")
+        # PDFを画像に変換
+        p = pdfbox.PDFBox()
+        p.pdf_to_images(save_path, imageType="png", dpi=200)
+
+        text = f"{month}月の救急病院などの当直表 #imabari\n{url}\n\n【子供の急な病気に困ったら】\n・小児救急電話相談（#8000）へ電話\n\n【救急車を呼んだ方がいいか？迷ったら】\n・えひめ救急電話相談（#7119）"
+
+        with open("kyukyu1.png", "rb") as f:
+            img_data = f.read()
+
+            api.send_image(text=text, image=img_data, image_alt=f"{year}年{month}月 救急病院")
 
 
 if __name__ == "__main__":
