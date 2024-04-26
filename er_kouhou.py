@@ -52,7 +52,7 @@ def main():
 
     url = urljoin(response.url, "kyukyu.pdf")
 
-    yyyymm = urlparse(response.url.url).path.strip("/").split("/")[-1]
+    yyyymm = urlparse(response.url).path.strip("/").split("/")[-1]
     year = int(yyyymm[:4])
     month = int(yyyymm[4:])
 
