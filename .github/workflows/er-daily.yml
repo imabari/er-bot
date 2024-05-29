@@ -24,7 +24,6 @@ jobs:
     - name: Run script
       run: |
         python er_daily.py
-        python er_kouhou.py
       env:
         BEARER_TOKEN: ${{ secrets.ER_BEARER_TOKEN }}
         CONSUMER_KEY: ${{ secrets.ER_CONSUMER_KEY }}
