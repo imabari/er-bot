@@ -32,6 +32,7 @@ jobs:
         ACCESS_TOKEN_SECRET: ${{ secrets.ER_ACCESS_TOKEN_SECRET }}
         AT_USER: ${{ secrets.ER_AT_USER }}
         AT_PASS: ${{ secrets.ER_AT_PASS }}
+        URL: ${{ secrets.URL }}
     - name: Commit and push if changes
       run: |
         git config --global user.name 'GitHub Actions'
