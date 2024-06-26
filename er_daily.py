@@ -6,7 +6,7 @@ import tweepy
 
 from atproto import Client
 
-url = "https://imabari.github.io/er-bot/data.json"
+url = os.environ["URL"]
 
 r = requests.get(url)
 r.raise_for_status()
