@@ -3,7 +3,6 @@ import json
 import os
 import pathlib
 from urllib.parse import urljoin, urlparse
-from atproto import Client, client_utils
 import pdfbox
 
 import requests
@@ -85,12 +84,6 @@ def main():
             access_token_secret=access_token_secret,
         )
 
-        at_user = os.environ["AT_USER"]
-        at_pass = os.environ["AT_PASS"]
-
-        api = Client()
-        api.login(at_user, at_pass)
-
         # PDFを画像に変換
         p = pdfbox.PDFBox()
         p.pdf_to_images(save_path, imageType="png", dpi=200)
@@ -102,25 +95,6 @@ def main():
 
         media = xapi.media_upload(filename=image_path)
         client.create_tweet(text=message, media_ids=[media.media_id])
-
-        # Bluesky
-
-        text = (
-            client_utils.TextBuilder()
-            .text(f"{month}月の救急病院などの当直表 #imabari\n")
-            .link(url, url)
-            .text(
-                "\n\n【子供の急な病気に困ったら】\n・小児救急電話相談（#8000）へ電話\n\n【救急車を呼んだ方がいいか？迷ったら】\n・えひめ救急電話相談（#7119）"
-            )
-        )
-
-        with open("kyukyu1.png", "rb") as f:
-            img_data = f.read()
-
-            api.send_image(
-                text=text, image=img_data, image_alt=f"{year}年{month}月 救急病院"
-            )
-
 
 if __name__ == "__main__":
     main()
