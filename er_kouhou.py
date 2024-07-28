@@ -65,7 +65,7 @@ def main():
     hash_file = pathlib.Path("hash.json")
     previous_hash = load_previous_hash(hash_file)
 
-    if previous_hash != current_hash:
+    if previous_hash == current_hash:
         save_hash_to_file(current_hash, hash_file)
 
         consumer_key = os.environ["CONSUMER_KEY"]
@@ -87,7 +87,7 @@ def main():
         # PDFを画像に変換
         doc = fitz.open(save_path)
         
-        for i, page in enumerate(doc):
+        for i, page in enumerate(doc, 1):
             pix = page.get_pixmap(dpi=200)
             pix.save(f"kyukyu{i}.png")
 
