@@ -3,7 +3,7 @@ import json
 import os
 import pathlib
 from urllib.parse import urljoin, urlparse
-import pdfbox
+import fitz
 
 import requests
 import tweepy
@@ -85,8 +85,11 @@ def main():
         )
 
         # PDFを画像に変換
-        p = pdfbox.PDFBox()
-        p.pdf_to_images(save_path, imageType="png", dpi=200)
+        doc = fitz.open(save_path)
+        
+        for i, page in enumerate(doc):
+            pix = page.get_pixmap(dpi=200)
+            pix.save(f"kyukyu{i}.png")
 
         # X
 
