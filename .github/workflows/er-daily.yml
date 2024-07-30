@@ -3,6 +3,8 @@ name: Daily
 on:
   repository_dispatch:
     types: [on-demand-test]
+  schedule:
+    - cron:  '0 22 * * *'
   workflow_dispatch:
 jobs:
   build:
