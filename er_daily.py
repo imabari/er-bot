@@ -47,9 +47,5 @@ if data:
         access_token,
         access_token_secret,
     )
+
     client.create_tweet(text=twit)
-
-    break
-
-else:
-        continue
