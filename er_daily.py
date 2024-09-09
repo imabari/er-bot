@@ -15,11 +15,11 @@ today_in_japan = datetime.datetime.now(JST).strftime("%Y-%m-%d")
 data = r.json().get(today_in_japan)
 
 if data:
-    
+
     hospital = []
 
-    for i in data["hospital"]:
-        
+    for i in data["hospitals"]:
+
         match i["type"]:
             case 0:
                 kind = ""
