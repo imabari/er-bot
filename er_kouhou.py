@@ -108,7 +108,7 @@ def main():
 
         with open(image_path, "rb") as f:
             img_data = f.read()
-            api.send_image(text=text, image=img_data, image_alt=f"{year}年{month}月 救急病院")
+            api.send_image(text=message, image=img_data, image_alt=f"{year}年{month}月 救急病院")
 
 if __name__ == "__main__":
     main()
