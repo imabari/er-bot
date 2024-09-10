@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r req_daily.txt
+        pip install -r req_kouhou.txt
     - name: Run script
       run: |
         python er_kouhou.py
@@ -30,6 +30,8 @@ jobs:
         CONSUMER_SECRET: ${{ secrets.ER_CONSUMER_SECRET }}
         ACCESS_TOKEN: ${{ secrets.ER_ACCESS_TOKEN }}
         ACCESS_TOKEN_SECRET: ${{ secrets.ER_ACCESS_TOKEN_SECRET }}
+        AT_USER: ${{ secrets.ER_AT_USER }}
+        AT_PASS: ${{ secrets.ER_AT_PASS }}
     - name: Commit and push if changes
       run: |
         git config --global user.name 'GitHub Actions'
