@@ -66,7 +66,7 @@ def main():
     hash_file = pathlib.Path("hash.json")
     previous_hash = load_previous_hash(hash_file)
 
-    if previous_hash == current_hash:
+    if previous_hash != current_hash:
         save_hash_to_file(current_hash, hash_file)
 
         consumer_key = os.environ["CONSUMER_KEY"]
