@@ -1,0 +1,6 @@
+requests
+tweepy
+pandas
+atproto
+python-pdfbox
+pymupdf
