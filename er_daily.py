@@ -4,6 +4,8 @@ import os
 import requests
 import tweepy
 
+from atproto import Client
+
 url = os.environ["URL"]
 
 r = requests.get(url)
@@ -49,3 +51,11 @@ if data:
     )
 
     client.create_tweet(text=twit)
+
+    at_user = os.environ["AT_USER"]
+    at_pass = os.environ["AT_PASS"]
+
+    api = Client()
+    api.login(at_user, at_pass)
+
+    api.send_post(twit)
