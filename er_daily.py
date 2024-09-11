@@ -1,6 +1,8 @@
 import datetime
 import os
 
+import logging
+
 import requests
 import tweepy
 
@@ -42,20 +44,27 @@ if data:
     access_token = os.environ["ACCESS_TOKEN"]
     access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
 
-    client = tweepy.Client(
-        bearer_token,
-        consumer_key,
-        consumer_secret,
-        access_token,
-        access_token_secret,
-    )
+    try:
+        client = tweepy.Client(
+            bearer_token,
+            consumer_key,
+            consumer_secret,
+            access_token,
+            access_token_secret,
+        )
+        
+        client.create_tweet(text=twit)
+    except Exception as e:
+        logging.error(f"エラーが発生しました: {e}")
+    
+    try:
+        at_user = os.environ["AT_USER"]
+        at_pass = os.environ["AT_PASS"]
+    
+        api = Client()
+        api.login(at_user, at_pass)
+    
+        api.send_post(twit)
 
-    client.create_tweet(text=twit)
-
-    at_user = os.environ["AT_USER"]
-    at_pass = os.environ["AT_PASS"]
-
-    api = Client()
-    api.login(at_user, at_pass)
-
-    api.send_post(twit)
+    except Exception as e:
+        logging.error((f"エラーが発生しました: {e}")
