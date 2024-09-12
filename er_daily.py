@@ -67,4 +67,4 @@ if data:
         api.send_post(twit)
 
     except Exception as e:
-        logging.error((f"エラーが発生しました: {e}")
+        logging.error(f"エラーが発生しました: {e}")
