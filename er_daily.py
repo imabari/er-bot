@@ -21,16 +21,25 @@ data = r.json().get(today_in_japan)
 if data:
 
     hospital = []
+    before = 0
 
     for i in data["hospitals"]:
 
-        match i["type"]:
-            case 0:
-                kind = ""
-            case 9:
-                kind = "【島しょ部】"
-            case _:
-                kind = f'【{i["medical"]}】'
+        if before == i["type"]:
+
+            kind = ""
+
+        else:
+
+            match i["type"]:
+                case 0:
+                    kind = ""
+                case 9:
+                    kind = "【島しょ部】"
+                case _:
+                    kind = f'【{i["medical"]}】'
+
+        before = i["type"]
 
         hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
 
