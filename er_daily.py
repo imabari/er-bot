@@ -43,7 +43,7 @@ if data:
 
         hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
 
-    twit = "\n\n".join([data["date_week"]] + hospital)
+    twit = "\n\n".join([data["date_week"]] + hospital + ["https://imabari.jpn.org/imabari119/"])
 
     print(twit)
 
