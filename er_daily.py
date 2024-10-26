@@ -44,6 +44,7 @@ if data:
         hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
 
     twit = "\n\n".join([data["date_week"]] + hospital + ["https://imabari.jpn.org/imabari119/"])
+    bspost = "\n\n".join([data["date_week"]] + hospital)
 
     print(twit)
 
@@ -73,7 +74,7 @@ if data:
         api = Client()
         api.login(at_user, at_pass)
     
-        api.send_post(twit)
+        api.send_post(bspost)
 
     except Exception as e:
         logging.error(f"エラーが発生しました: {e}")
