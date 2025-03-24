@@ -101,7 +101,7 @@ def main():
         # X
 
         image_path = "kyukyu1.png"
-        message = f"{month}月の救急病院などの当直表 #imabari\n{url}\n\nえひめ医療情報ネット\nhttps://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2310/initialize?pref=38\n\n本日の当番医\nhttps://imabari119.pages.dev/"
+        message = f"{month}月の救急病院などの当直表 #imabari\n{url}\n\nえひめ医療情報ネット\nhttps://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2310/initialize?pref=38\n\n本日の当番医\nhttps://imabari119.github.io/today/"
 
         media = xapi.media_upload(filename=image_path)
         client.create_tweet(text=message, media_ids=[media.media_id])
