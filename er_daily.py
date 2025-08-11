@@ -32,7 +32,7 @@ if data:
         else:
 
             match i["type"]:
-                case 0 | 1 | 2 | 3 | 4:
+                case 0 | 1 | 2 | 3 | 4 | 5 | 6:
                     kind = ""
                 case 9:
                     kind = "【島しょ部】"
