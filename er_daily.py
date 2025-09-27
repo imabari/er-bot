@@ -32,12 +32,12 @@ if data:
         else:
 
             match i["type"]:
-                case 0 | 1 | 2 | 3 | 4 | 5 | 6:
-                    kind = ""
-                case 9:
+                case 15 | 70 | 80:
+                    kind = f'【{i["medical"]}】'
+                case 90:
                     kind = "【島しょ部】"
                 case _:
-                    kind = f'【{i["medical"]}】'
+                    kind = ""
 
         before = i["type"]
 
