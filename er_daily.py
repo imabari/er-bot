@@ -51,8 +51,8 @@ if not df1.empty:
 
         hospital.append("\n".join([kind, row["name"], row["time"]]).strip())
 
-    twit = "\n\n".join([data["date_week"]] + hospital + ["https://imabari.jpn.org/imabari119/"])
-    bspost = "\n\n".join([data["date_week"]] + hospital)
+    twit = "\n\n".join([date_week] + hospital + ["https://imabari.jpn.org/imabari119/"])
+    bspost = "\n\n".join([date_week] + hospital)
 
     print(twit)
 
