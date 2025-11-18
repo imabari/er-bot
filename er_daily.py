@@ -1,8 +1,7 @@
-import datetime
 import os
-
 import logging
 
+import pandas as pd
 import requests
 import tweepy
 
@@ -10,38 +9,47 @@ from atproto import Client
 
 url = os.environ["URL"]
 
-r = requests.get(url)
-r.raise_for_status()
+df0 = pd.read_csv(url, parse_dates=["date"])
 
-JST = datetime.timezone(datetime.timedelta(hours=+9))
-today_in_japan = datetime.datetime.now(JST).strftime("%Y-%m-%d")
+islands = [
+    "喜多嶋診療所",
+    "有津むらかみクリニック",
+    "大三島中央病院",
+    "斎藤クリニック",
+    "片山医院",
+    "はかた外科胃腸科",
+    "しのざき整形外科",
+    "松浦医院"
+]
 
-data = r.json().get(today_in_japan)
+df0["medical"] = df0["medical"].mask(df0["name"].isin(islands), "島しょ部")
+df0["medical"] = df0["medical"].mask(df0["medical"] == "指定なし", "")
 
-if data:
+df0["date_week"] = df0["date"].dt.strftime("%Y年%m月%d日").str.cat(df0["week"], sep=" ")
+
+today = pd.Timestamp.now(tz="Asia/Tokyo").date().isoformat()
+
+df1 = df0[df0["date"] == today].copy()
+
+if not df1.empty:
+
+    date_week = df1["date_week"].iloc[0]
 
     hospital = []
-    before = 0
+    before = ""
 
-    for i in data["hospitals"]:
+    for _, row in df1.iterrows():
 
-        if before == i["type"]:
+        if row["medical"] == before:
 
             kind = ""
 
         else:
+            kind = f'【{row["medical"]}】'
 
-            match i["type"]:
-                case 15 | 70 | 80:
-                    kind = f'【{i["medical"]}】'
-                case 90:
-                    kind = "【島しょ部】"
-                case _:
-                    kind = ""
+        before = row["medical"]
 
-        before = i["type"]
-
-        hospital.append("\n".join([kind, i["name"], i["time"]]).strip())
+        hospital.append("\n".join([kind, row["name"], row["time"]]).strip())
 
     twit = "\n\n".join([data["date_week"]] + hospital + ["https://imabari.jpn.org/imabari119/"])
     bspost = "\n\n".join([data["date_week"]] + hospital)
