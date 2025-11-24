@@ -40,7 +40,7 @@ if not df1.empty:
 
     for _, row in df1.iterrows():
 
-        if row["medical"] == before:
+        if row["medical"] == before or row["medical"] == "":
 
             kind = ""
 
