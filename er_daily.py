@@ -5,8 +5,6 @@ import pandas as pd
 import requests
 import tweepy
 
-from atproto import Client
-
 url = os.environ["URL"]
 
 df0 = pd.read_csv(url, parse_dates=["date"])
@@ -72,17 +70,5 @@ if not df1.empty:
         )
         
         client.create_tweet(text=twit)
-    except Exception as e:
-        logging.error(f"エラーが発生しました: {e}")
-    
-    try:
-        at_user = os.environ["AT_USER"]
-        at_pass = os.environ["AT_PASS"]
-    
-        api = Client()
-        api.login(at_user, at_pass)
-    
-        api.send_post(bspost)
-
     except Exception as e:
         logging.error(f"エラーが発生しました: {e}")
