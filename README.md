@@ -1,4 +1,4 @@
-https://twitter.com/imabari119_bot
+https://twitter.com/imabari119
 
 ## er_daily.py
 
