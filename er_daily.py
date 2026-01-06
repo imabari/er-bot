@@ -60,15 +60,12 @@ if not df1.empty:
     access_token = os.environ["ACCESS_TOKEN"]
     access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
 
-    try:
-        client = tweepy.Client(
-            bearer_token,
-            consumer_key,
-            consumer_secret,
-            access_token,
-            access_token_secret,
-        )
-        
-        client.create_tweet(text=twit)
-    except Exception as e:
-        logging.error(f"エラーが発生しました: {e}")
+    client = tweepy.Client(
+        bearer_token,
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret,
+    )
+    
+    client.create_tweet(text=twit)
