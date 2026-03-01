@@ -54,16 +54,18 @@ if not df1.empty:
 
     print(twit)
 
-    consumer_key = os.environ["CONSUMER_KEY"]
-    consumer_secret = os.environ["CONSUMER_SECRET"]
-    access_token = os.environ["ACCESS_TOKEN"]
-    access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
+    bearer_token = os.environ["ER_BEARER_TOKEN"]
+    consumer_key = os.environ["ER_CONSUMER_KEY"]
+    consumer_secret = os.environ["ER_CONSUMER_SECRET"]
+    access_token = os.environ["ER_ACCESS_TOKEN"]
+    access_token_secret = os.environ["ER_ACCESS_TOKEN_SECRET"]
 
     client = tweepy.Client(
-        consumer_key=consumer_key,
-        consumer_secret=consumer_secret,
-        access_token=access_token,
-        access_token_secret=access_token_secret,
+        bearer_token = bearer_token,
+        consumer_key = consumer_key,
+        consumer_secret = consumer_secret,
+        access_token = access_token,
+        access_token_secret = access_token_secret,
     )
     
     client.create_tweet(text=twit)
