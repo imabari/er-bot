@@ -69,16 +69,18 @@ def main():
     if previous_hash != current_hash:
         save_hash_to_file(current_hash, hash_file)
 
-        consumer_key = os.environ["CONSUMER_KEY"]
-        consumer_secret = os.environ["CONSUMER_SECRET"]
-        access_token = os.environ["ACCESS_TOKEN"]
-        access_token_secret = os.environ["ACCESS_TOKEN_SECRET"]
+        bearer_token = os.environ["ER_BEARER_TOKEN"]
+        consumer_key = os.environ["ER_CONSUMER_KEY"]
+        consumer_secret = os.environ["ER_CONSUMER_SECRET"]
+        access_token = os.environ["ER_ACCESS_TOKEN"]
+        access_token_secret = os.environ["ER_ACCESS_TOKEN_SECRET"]
 
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
 
         xapi = tweepy.API(auth)
         client = tweepy.Client(
+            bearer_token=bearer_token,
             consumer_key=consumer_key,
             consumer_secret=consumer_secret,
             access_token=access_token,
