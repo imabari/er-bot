@@ -7,8 +7,6 @@ import fitz
 
 import requests
 import tweepy
-from atproto import Client
-
 
 def download_file(url, save_path):
     response = requests.get(url)
@@ -87,12 +85,6 @@ def main():
             access_token_secret = access_token_secret,
         )
 
-        at_user = os.environ["AT_USER"]
-        at_pass = os.environ["AT_PASS"]
-
-        api = Client()
-        api.login(at_user, at_pass)
-        
         # PDFを画像に変換
         doc = fitz.open(save_path)
         
@@ -108,9 +100,7 @@ def main():
         media = xapi.media_upload(filename=image_path)
         client.create_tweet(text=message, media_ids=[media.media_id])
 
-        with open(image_path, "rb") as f:
-            img_data = f.read()
-            api.send_image(text=message, image=img_data, image_alt=f"{year}年{month}月 救急病院")
+        print(message)
 
 if __name__ == "__main__":
     main()
